@@ -1,9 +1,21 @@
 package ar.edu.unq.po2.tp2;
 
+import java.time.LocalDate;
+
 public class EmpleadoPlantaPerma extends Empleado {
+	
+	// Attributes
 	private int cantDeHijos;
 	private int antiguedad;
-	private String soltero;
+	
+	
+	// Constructor
+	public EmpleadoPlantaPerma(String nombre, String direccion, String estadoCivil, LocalDate fechaDeNac,
+			double sueldoBasico, int cantDeHijos, int antiguedad) {
+		super(nombre, direccion, estadoCivil, fechaDeNac, sueldoBasico);
+		this.cantDeHijos = cantDeHijos;
+		this.antiguedad = antiguedad;
+	}
 	
 	public int getCantDeHijos() {
 		return cantDeHijos;
@@ -19,17 +31,17 @@ public class EmpleadoPlantaPerma extends Empleado {
 	}
 
 	@Override
-	protected float sueldoBruto() {
+	protected double sueldoBruto() {
 		return (this.getSueldoBasico() + this.salarioFamiliar());
 	}
 	
 		
-	private Float salarioFamiliar() {
-		return (float) (this.asignacionPorHijo() + this.asignacionPorConyuje() + this.asignacionPorAntiguedad());
+	private double salarioFamiliar() {
+		return this.asignacionPorHijo() + this.asignacionPorConyuje() + this.asignacionPorAntiguedad();
 	}
 	
 	private int asignacionPorConyuje() {
-		if (this.getEstadoCivil() != this.soltero) // REVISAR !!!
+		if (this.getEstadoCivil() !="Soltero")
 			{ return 100; }
 		else
 		  	{ return 0; }				
