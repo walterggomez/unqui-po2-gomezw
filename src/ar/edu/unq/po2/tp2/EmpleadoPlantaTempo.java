@@ -60,5 +60,26 @@ public class EmpleadoPlantaTempo extends Empleado {
 	private double retPorHsExtras() {		
 		return 5 * this.getCantHorasExtras();
 	}
+
+
+	@Override
+	protected ReciboDeHaberes pedirRecibo() {
+		LocalDate emision = LocalDate.now();
+		ReciboDeHabEmpTempo miReccibo = new ReciboDeHabEmpTempo(
+												emision,
+												this.getNombre(),
+												this.getDireccion(),				
+												this.sueldoBruto(),
+												this.sueldoNeto(),												
+												this.getSueldoBasico(),
+												this.sueldoPorHsExtras(),										
+												this.retPorObraSoc(),
+												this.retPorEdadAvanzada(),
+												this.retAporteJubilatorio(),
+												this.retPorHsExtras()												
+												);
+
+		return miReccibo;
+	}
 	
 }

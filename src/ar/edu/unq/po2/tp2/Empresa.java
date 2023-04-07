@@ -7,9 +7,11 @@ public class Empresa {
 	private String nombre;
 	private String cuit;
 	private List<Empleado> empleados = new ArrayList<Empleado>();
+	private List<ReciboDeHaberes> recibos = new ArrayList<ReciboDeHaberes>();
 	
 	
 	public Empresa(String nombre, String cuit, List<Empleado> empleados) {
+		
 		super();
 		this.nombre = nombre;
 		this.cuit = cuit;
@@ -29,7 +31,8 @@ public class Empresa {
 		}		
 		return montoBruto; 
 	}
-	public double totalRetenciones() {
+	public double totalRetenciones() { 
+		
 		int montoRete = 0;
 		for (Empleado empleado : empleados ) {
 			montoRete += empleado.retenciones();
@@ -39,6 +42,12 @@ public class Empresa {
 	public double totalSueldosNetos() {
 		return this.totalSueldosBrutos() - this.totalRetenciones() ; 
 	}
+	public void liquidacionDeHaberes() {
+		for (Empleado empleado : empleados ) {
+			recibos.add(empleado.pedirRecibo());
+		}		
+	}
+	
 
 
 }

@@ -62,5 +62,11 @@ public abstract class Empleado {
 	protected abstract double retenciones();
 	
 	protected abstract double retAporteJubilatorio();
-
+	
+	protected abstract ReciboDeHaberes pedirRecibo();
+	
+	
+	
+	
+	
 }

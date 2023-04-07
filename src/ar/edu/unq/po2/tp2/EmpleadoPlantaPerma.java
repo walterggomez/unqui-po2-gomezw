@@ -40,13 +40,13 @@ public class EmpleadoPlantaPerma extends Empleado {
 		return this.asignacionPorHijo() + this.asignacionPorConyuje() + this.asignacionPorAntiguedad();
 	}
 	
-	private int asignacionPorConyuje() {
+	private double asignacionPorConyuje() {
 		if (this.getEstadoCivil() !="Soltero")
 			{ return 100; }
 		else
 		  	{ return 0; }				
 	}
-	private int asignacionPorHijo() {
+	private double asignacionPorHijo() {
 		return  (150 * this.getCantDeHijos());
 	}
 	private int asignacionPorAntiguedad() {
@@ -64,9 +64,33 @@ public class EmpleadoPlantaPerma extends Empleado {
 		return this.sueldoBruto() * 0.15 ;
 	}
 	
-	private int retPorHijo() {
+	private double retPorHijo() {
 		return 20 * this.getCantDeHijos();
 	}
+
+	@Override
+	protected ReciboDeHaberes pedirRecibo() {
+		LocalDate emision = LocalDate.now();
+		ReciboDeHabEmpPerma miReccibo = new ReciboDeHabEmpPerma(	
+												emision,
+												this.getNombre(),
+												this.getDireccion(),												
+												this.sueldoBruto(),
+												this.sueldoNeto(),
+												this.getSueldoBasico(),
+												this.asignacionPorHijo(),
+												this.asignacionPorConyuje(),
+												this.asignacionPorAntiguedad(),
+												this.retPorObraSoc(),
+												this.retPorHijo(),
+												this.retAporteJubilatorio()			
+												);
+		
+		return miReccibo;
+	}
+	
+
+	
 
 	
 }
