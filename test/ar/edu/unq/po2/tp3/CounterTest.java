@@ -1,9 +1,11 @@
 package ar.edu.unq.po2.tp3;
 
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
 
 
 
@@ -82,6 +84,24 @@ public class CounterTest {
 		
 	}	
 	
+    @SuppressWarnings("null")
+	public void testString() {
+        String a = "abc";
+        String s = a;
+        String t = null;
+       
+        assertEquals(s.length(), 3);
+        assertEquals(t.length(), 0);
+        assertEquals(1 + a, "1abc");
+        assertEquals(a.toUpperCase(), "ABC");
+        assertEquals("Libertad".indexOf("r"), 4);
+        assertEquals("Universidad".lastIndexOf('i'), 7);
+        assertEquals("Quilmes".substring(2,4),"il");
+        assertEquals((a.length() + a).startsWith("a"),false);
+        assertEquals(s==a,true);
+        assertTrue(s=a,true);
+        assertTrue(a.substring(1,3).equals("bc"));
+
 	
-	
+    }
 }
