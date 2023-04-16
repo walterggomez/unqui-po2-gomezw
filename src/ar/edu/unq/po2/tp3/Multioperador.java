@@ -1,15 +1,17 @@
 package ar.edu.unq.po2.tp3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Multioperador {
 	// int[] arregloDeEnteros;
 	// int[] arregloDeEnteros = new int[] {1,2,3};
-	int[] arregloDeEnteros = new int[] {1,-2,3};
-	
-/*	public void addNumber(int numero) {
-		arregloDeEnteros.add(int numero);
+	//int[] arregloDeEnteros = new int[] {1,-2,3};
+	private List<Integer> arregloDeEnteros = new ArrayList<Integer>();
+
+	public void addNumber(int numero) {
+		arregloDeEnteros.add(numero);
 	}
-*/	
-	
 	
 	public int suma() {
 		int sum = 0;
