@@ -32,7 +32,7 @@ public class Trabajador {
 	return totalImponible;		
 	}
 	
-	public List<Ingreso> ingresosImponibles(){
+	private List<Ingreso> ingresosImponibles(){
 		return ingresosPercibidos.stream().filter(concepto ->concepto.getConcepto()=="Sueldo").collect(Collectors.toList());
 	}
 	
